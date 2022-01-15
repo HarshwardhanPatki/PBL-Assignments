@@ -1,0 +1,99 @@
+#include<iostream>
+using namespace std;
+int a=0;
+template<class T>
+class VectorTemplate
+{
+   public:
+   	int count=0;
+   	T *arr;
+   	VectorTemplate(int s)
+   	{ 
+   		arr=new T[s];
+   		for(int i=0;i<s;i++)
+   		{
+   			arr[i]=0;
+   		}
+   	}
+   	void multiply()
+   	{
+   		int k;
+   		cout<<"Enter the element to be multiplied"<<endl;
+   		cin>>k;
+   		for(int i=0;i<count;i++)
+   		{
+   			arr[i]*=k;
+   		}
+   	}
+   	
+   void create(int pos)
+    {
+    	cout<<"Enter the value"<<endl;
+    	int val;
+    	cin>>val;
+      arr[pos]=val;
+      ++count;
+    }
+     void modify()
+   	{
+   		cout<<"Enter the index to be modified"<<endl;
+   		int index;
+   		cin>>index;
+   		cout<<"Enter the number"<<endl;
+   		int value;
+   		cin>>value;
+   		arr[index]=value;
+   	}
+   	void display()
+   	{
+   		for(int i=0;i<count;i++)
+   		{
+   			cout<<arr[i]<<" ";
+   		}
+   		cout<<endl;
+   	}
+};
+int main()
+{
+  int op;
+  VectorTemplate<int> v(5);
+  do
+  {
+    cout<<"Enter the operation ot be performed"<<endl;
+    cout<<"1:create"<<endl;
+    cout<<"2:Display"<<endl;
+    cout<<"3:Modify"<<endl;
+    cout<<"4:Multiply"<<endl;
+    cin>>op;
+    switch(op)
+    {
+    	case 0:
+    	{
+    		break;
+    	}
+    	case 1:
+    	{
+        
+    		v.create(a);
+        a++;
+    		break;
+    	}
+    	case 2:
+    	{
+    		v.display();
+    		break;
+    	}
+    	case 3:
+    	{
+    		v.modify();
+    		break;
+    	}
+    	case 4:
+    	{
+    		v.multiply();
+    		break;
+    	}
+    }
+  }while(op!=0);
+ return 0;
+}
